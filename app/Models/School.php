@@ -10,4 +10,10 @@ class School extends Model
     use HasFactory;
 
     protected $fillable = ['name','logo_path'];
+
+    public function branches()
+    {
+        return $this->hasMany(Branch::class);
+    }
+
 }
