@@ -34,6 +34,10 @@ Route::middleware([
         return view('student.dashboard');
     })->name('student.create');
 
+    Route::get('/students/{id}/edit', function () {
+        return view('student.dashboard');
+    })->name('student.edit');
+
     Route::get('/fee', function () {
         return view('fee.dashboard');
     })->name('fee');
