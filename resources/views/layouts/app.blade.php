@@ -7,6 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <style>[x-cloak] { display: none !important; }</style>
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
@@ -40,5 +41,7 @@
         @stack('modals')
 
         @livewireScripts
+        @stack('scripts')
+        @livewire('notifications')
     </body>
 </html>
