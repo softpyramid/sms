@@ -11,6 +11,7 @@ use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
 
 use App\Models\Student;
+use Filament\Notifications\Notification;
 
 class EditStudent extends Component implements Forms\Contracts\HasForms
 {
@@ -75,6 +76,11 @@ class EditStudent extends Component implements Forms\Contracts\HasForms
     {
 
         $this->student->update($this->form->getState());
+
+        Notification::make()
+            ->title('Student saved successfully')
+            ->success()
+            ->send();
 
         return redirect()->route('students');
     }

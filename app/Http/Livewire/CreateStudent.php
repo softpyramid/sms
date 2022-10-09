@@ -6,6 +6,7 @@ namespace App\Http\Livewire;
 use App\Models\Branch;
 use App\Models\School;
 use Filament\Forms;
+use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Livewire\TemporaryUploadedFile;
@@ -55,8 +56,13 @@ class CreateStudent extends Component implements Forms\Contracts\HasForms
 
     public function create()
     {
-        
+
         Student::create($this->form->getState());
+
+        Notification::make()
+            ->title('Student created successfully')
+            ->success()
+            ->send();
 
         return redirect()->route('students');
     }
