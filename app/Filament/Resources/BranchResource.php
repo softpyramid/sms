@@ -87,4 +87,11 @@ class BranchResource extends Resource
             'edit' => Pages\EditBranch::route('/{record}/edit'),
         ];
     }
+
+    public static function getWidgets(): array
+    {
+        return [
+           BranchResource\Widgets\StudentsOverview::class
+        ];
+    }
 }

@@ -10,6 +10,13 @@ class ListBranches extends ListRecords
 {
     protected static string $resource = BranchResource::class;
 
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            BranchResource\Widgets\StudentsOverview::class,
+        ];
+    }
+
     protected function getActions(): array
     {
         return [
