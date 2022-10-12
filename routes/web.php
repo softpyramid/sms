@@ -23,6 +23,23 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('branch.dashboard');
     })->name('dashboard');
+
+    Route::get('/students', function () {
+        return view('student.dashboard');
+    })->name('students');
+
+    Route::get('/students/create', function () {
+        return view('student.dashboard');
+    })->name('student.create');
+
+    Route::get('/students/{id}/edit', function () {
+        return view('student.dashboard');
+    })->name('student.edit');
+
+    Route::get('/fee', function () {
+        return view('fee.dashboard');
+    })->name('fee');
+
 });

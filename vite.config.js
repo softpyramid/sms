@@ -12,6 +12,7 @@ export default defineConfig({
                 ...refreshPaths,
                 'resources/views/**',
                 'app/Http/Livewire/**',
+                'app/Filament/Resources/**',
                 'app/Forms/Components/**',
                 'app/Tables/Columns/**',
 
