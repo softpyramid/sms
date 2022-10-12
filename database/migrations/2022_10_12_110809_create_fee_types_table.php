@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('fee_types', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignId('school_id');
             $table->timestamps();
         });
     }
