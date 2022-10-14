@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('photo_path', 2048)->nullable();
-
             $table->foreignId('section_id');
             $table->foreignId('grade_id');
             $table->foreignId('branch_id');
