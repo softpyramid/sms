@@ -13,8 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sessions', function (Blueprint $table) {
+        Schema::create('batches', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('branch_id');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->string('name');
+            $table->timestamp('date_from')->nullable();
+            $table->timestamp('date_to')->nullable();
+            $table->tinyInteger('is_active');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sessions');
+        Schema::dropIfExists('batches');
     }
 };
