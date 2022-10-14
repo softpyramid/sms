@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::create('periods', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('batch_id');
-            $table->foreign('batch_id')->references('id')->on('batches')->onDelete('cascade');
-            $table->text('description')->nullable();
-            $table->timestamp('month_from')->nullable();
-            $table->timestamp('month_to')->nullable();
-            $table->tinyInteger('is_active');
+            $table->foreignId('branch_id');
+            $table->string('name')->nullable();
+            $table->date('from_date');
+            $table->date('to_date');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }

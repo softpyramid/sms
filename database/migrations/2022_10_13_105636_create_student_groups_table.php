@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('student_groups', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('branch_id');
-            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('cascade');
+            $table->foreignId('branch_id');
             $table->string('name');
             $table->timestamps();
         });
