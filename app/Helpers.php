@@ -4,53 +4,26 @@ namespace App\Helpers;
 
 use Illuminate\Database\Eloquent\Collection;
 
-class Helper
+
+if (!function_exists('getFamilType')) {
+
+function getFamilType()
 {
 
-   protected static $familyType = [
-        1=> [
-            'PREFIX' => 'F',
-            'FAMILY_TYPE' => 'FATHER',
-        ],
-        2 => [
-            'PREFIX' => 'M',
-            'FAMILY_TYPE' => 'MOTHER',
-        ],
-        3 => [
-            'PREFIX' => 'G',
-            'FAMILY_TYPE' => 'GAURDIAN',
-        ],
+    $familyType = ['F' => 'FATHER', 'M' => 'MOTHER', 'G' => 'GUARDIAN'];
 
-    ];
+    return $familyType;
+}
 
-    protected static $identity = [
-        1=> [
-            'IDENTITY' => 'ID_CARD',
-            'IDENTITY_TYPE' => 'ID CARD',
-        ],
-        2 => [
-            'IDENTITY' => 'PASSPORT',
-            'IDENTITY_TYPE' => 'PASSPORT',
-        ],
-        3 => [
-            'IDENTITY' => 'B_FORM',
-            'IDENTITY_TYPE' => 'B-FORM',
-        ],
+}
 
-    ];
+if (!function_exists('getIdentity')) {
 
-     public static function getFamilType()
-    {
-        $familyType = (new Collection(self::$familyType))->pluck('FAMILY_TYPE', 'PREFIX')->toArray();
+function getIdentity()
+{
+    $identity = ['ID_CARD' => 'ID CARD', 'PASSPORT' => 'PASSPORT', 'B_FORM' => 'B-FORM'];
 
-        return $familyType;
-    }
-
-    public static function getIdentity()
-    {
-        $identity = (new Collection(self::$identity))->pluck('IDENTITY', 'IDENTITY_TYPE')->toArray();
-
-        return $identity;
-    }
+    return $identity;
+}
 
 }
