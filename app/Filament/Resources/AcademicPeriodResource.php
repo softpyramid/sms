@@ -10,6 +10,7 @@ use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Forms\Components\Toggle;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -29,6 +30,7 @@ class AcademicPeriodResource extends Resource
                 ->maxLength(255),
 
                 Forms\Components\Select::make('academic_year_id')
+                ->required()
                 ->label('Academic Year')
                 ->options(AcademicYear::all()->pluck('name', 'id')),
 
@@ -39,12 +41,9 @@ class AcademicPeriodResource extends Resource
                 Forms\Components\DatePicker::make('date_to')
                 ->label('Date To')
                 ->required(),
-
-                Forms\Components\Select::make('is_active')
-                ->options([
-                    '0' => 'yes',
-                    '1' => 'No',
-                ])->label(__('Is Active'))->required(),
+                
+                Toggle::make('is_active')->label(__('Active?'))->inline(false),
+               
             ]);
     }
 
@@ -55,7 +54,9 @@ class AcademicPeriodResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('date_from')->label('Start Date')->date(),
                 Tables\Columns\TextColumn::make('date_to')->label('End Date')->date(),
-                Tables\Columns\TextColumn::make('is_active')->label('Status'),
+                Tables\Columns\BooleanColumn::make('is_active')
+                ->falseIcon('heroicon-o-x-circle') 
+                ->trueIcon('heroicon-s-check-circle')
             ])
             ->filters([
                 //

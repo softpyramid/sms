@@ -30,6 +30,7 @@ class AcademicYearResource extends Resource
 
                 Forms\Components\Select::make('branch_id')
                 ->label('Branch')
+                ->required()
                 ->options(Branch::all()->pluck('name', 'id')),
 
                 Forms\Components\DatePicker::make('date_from')
@@ -40,11 +41,7 @@ class AcademicYearResource extends Resource
                 ->label('Date To')
                 ->required(),
 
-                Forms\Components\Select::make('is_active')
-                ->options([
-                    '0' => 'yes',
-                    '1' => 'No',
-                ])->label(__('Is Active'))->required(),
+                Forms\Components\Toggle::make('is_active')->label(__('Active?'))->inline(false),
 
             ]);
     }
@@ -56,7 +53,10 @@ class AcademicYearResource extends Resource
                 Tables\Columns\TextColumn::make('name'),
                 Tables\Columns\TextColumn::make('date_from')->label('Start Date')->date(),
                 Tables\Columns\TextColumn::make('date_to')->label('End Date')->date(),
-                Tables\Columns\TextColumn::make('is_active')->label('Status'),
+                // Boolean::make('is_active')->label('Status'),
+                Tables\Columns\BooleanColumn::make('is_active')
+                ->falseIcon('heroicon-o-x-circle') 
+                ->trueIcon('heroicon-s-check-circle')
             ])
             ->filters([
                 //
