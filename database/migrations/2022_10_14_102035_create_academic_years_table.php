@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-
-        Schema::create('periods', function (Blueprint $table) {
+        Schema::create('academic_years', function (Blueprint $table) {
             $table->id();
             $table->foreignId('branch_id');
-            $table->string('name')->nullable();
-            $table->date('from_date');
-            $table->date('to_date');
-            $table->boolean('is_active')->default(false);
+            $table->string('name');
+            $table->date('date_from');
+            $table->date('date_to');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periods');
+        Schema::dropIfExists('academic_years');
     }
 };

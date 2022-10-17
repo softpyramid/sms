@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('batches', function (Blueprint $table) {
+        Schema::create('academic_periods', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('branch_id');
-            $table->string('name');
-            $table->timestamp('date_from');
-            $table->timestamp('date_to');
-            $table->tinyInteger('is_active');
+            $table->foreignId('academic_year_id');
+            $table->string('name')->nullable();
+            $table->date('date_from');
+            $table->date('date_to');
+            $table->boolean('is_active')->default(false);
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('batches');
+        Schema::dropIfExists('academic_periods');
     }
 };
