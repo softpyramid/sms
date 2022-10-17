@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('branch_id');
             $table->string('name');
-            $table->timestamp('date_from');
-            $table->timestamp('date_to');
-            $table->tinyInteger('is_active');
+            $table->date('date_from');
+            $table->date('date_to');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }
