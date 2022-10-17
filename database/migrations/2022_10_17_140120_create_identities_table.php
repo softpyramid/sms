@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('identities', function (Blueprint $table) {
             $table->id();
             $table->string('type')->nullable();
-            $table->string('identity_no')->nullable();
+            $table->string('identity_no', 20)->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();
         });
