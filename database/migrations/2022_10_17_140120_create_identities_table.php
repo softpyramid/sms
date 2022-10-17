@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('type')->nullable();
             $table->string('identity_no', 20)->nullable();
-            $table->string('photo')->nullable();
+            $table->string('photo_path')->nullable();
             $table->timestamps();
         });
     }
