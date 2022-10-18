@@ -2,9 +2,6 @@
 
 namespace App\Helpers;
 
-use Illuminate\Database\Eloquent\Collection;
-
-
 if (!function_exists('getFamilType')) {
 
 function getFamilType()
