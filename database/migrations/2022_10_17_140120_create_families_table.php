@@ -15,6 +15,18 @@ return new class extends Migration
     {
         Schema::create('families', function (Blueprint $table) {
             $table->id();
+            $table->string('family_no')->nullable();
+            $table->string('type', 5);
+            $table->string('name');
+            $table->string('address')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('mobile');
+            $table->string('home_mobile')->nullable();
+            $table->string('email')->nullable();
+            $table->foreignId('identity_id');
+            $table->foreignId('country_id');
+            $table->foreignId('city_id');
+
             $table->timestamps();
         });
     }
