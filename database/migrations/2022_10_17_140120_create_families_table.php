@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('mobile');
             $table->string('home_mobile')->nullable();
             $table->string('email')->nullable();
-            $table->foreignId('identity_id');
+            $table->foreignId('identity_id')->nullable();
             $table->foreignId('country_id');
             $table->foreignId('city_id');
 

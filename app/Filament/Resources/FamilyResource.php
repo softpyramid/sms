@@ -68,8 +68,6 @@ class FamilyResource extends Resource
                     return $country->cities->pluck('name', 'id');
                     
                 }),
-
-                Select::make('identity_id')->relationship('identity', 'type'),
                 
               ]) ->columns(2)
             ]);
