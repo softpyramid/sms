@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class StudentGroup extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['branch_id','name'];
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 }
