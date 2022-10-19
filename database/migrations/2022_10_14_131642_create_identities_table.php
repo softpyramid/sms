@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('identities', function (Blueprint $table) {
             $table->id();
-            $table->string('type', 5);
-            $table->string('identity_no', 20);
-            $table->string('photo_path', 2048)->nullable();
+            $table->string('type');
+            $table->string('identity_no', 50);
+            $table->string('photo_path');
             $table->timestamps();
         });
     }
